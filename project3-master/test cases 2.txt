@@ -1,0 +1,8 @@
+hassoo	abdf	alrt	//must be integer
+82	135		//no cities nearby at this coordiante
+hasso	15	alrt	//incorrect lat with string
+23#&*&	25	alrt	//incorrect lat with symbols
+		alrt	//black spaces
+45		alrt	//long is blank now
+	120	alrt	//lat is blank now
+40.7128	-74.0060	//new york

@@ -1,0 +1,9 @@
+fds	abdf	alrt	//must be integer
+82	135		//no cities nearby at this coordiante
+abd	15	alrt	//incorrect lat with string
+%$#&*&	25	alrt	//incorrect lat with symbols
+		alrt	//black spaces
+-67		alrt	//long is blank now
+	400	alrt	//lat is blank now
+40.7128	-74.0060	//new york
+39.93	32.85		//ankara

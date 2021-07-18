@@ -1,0 +1,7 @@
+abcdefga	abdf	alrt	//must be integer
+82	135		//no cities nearby at this coordiante
+abdfd	15	alrt	//incorrect lat with string
+19&*&	15	alrt	//incorrect lat with symbols
+		alrt	//black spaces
+25		alrt	//blank spaces
+39.93	32.85		//ankara

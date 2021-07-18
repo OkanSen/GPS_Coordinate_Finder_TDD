@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" href="style.css">
+
+	<title>GPS Coordinate Finder</title>
+</head>
+
+<body>
+	<!-- <div class ="video-background">
+		<div class="video-wrap">
+			<div id="video">
+				<video id="bgvid" autoplay loop muted playsinline>
+					<source src = "video-1.mp4" type ="video/mp4">
+				</video>
+			</div>
+		</div>
+	</div> -->
+	
+	<div id="mainDiv">
+	 <!-- 	<video src = "/videos/video-1.mp4" autoplay loop muted > -->
+		<div id="controlPanel">
+			<!-- Tabs -->
+			<ul class="nav nav-pills nav-justified" id="pills-tab" role="tablist">
+				<li class="nav-item" role="presentation">
+					<a class="nav-link active" id="pills-coord-tab" data-toggle="pill" href="#pills-coord" role="tab"
+						aria-controls="pills-coord" aria-selected="true" onclick="switchTo1()">Find Coordinate</a>
+				</li>
+				<li class="nav-item" role="presentation">
+					<a class="nav-link" id="pills-core-tab" data-toggle="pill" href="#pills-core" role="tab"
+						aria-controls="pills-core" aria-selected="false" onclick="switchTo2()">Find Distance to the Earth's core
+					</a>
+				</li>
+				<li class="nav-item" role="presentation">
+					<a class="nav-link" id="pills-ben-tab" data-toggle="pill" href="#pills-ben" role="tab"
+						aria-controls="pills-ben" aria-selected="false" onclick="switchTo3()">Find Distance to Big Ben</a>
+				</li>
+			</ul>
+
+			<!-- Input and Submission -->
+			<div style="width: 100%;">
+				<div class="form-group row inputContainer">
+					<label for="latInput" class="col-sm-2 col-form-label">Latitude</label>
+					<input id="latInput" name="latInput" class="form-control col-sm-10" type="text"
+						placeholder="Latitude">
+				</div>
+
+				<div class="form-group row inputContainer">
+					<label for="lngInput" class="col-sm-2 col-form-label">Longtitude</label>
+					<input id="lngInput" name="lngInput" class="form-control col-sm-10" type="text"
+						placeholder="Longtitude">
+				</div>
+
+				<button id="submitBtn" name="submitBtn" type="button" class="btn btn-outline-success"
+					onclick="showDistanceToBen('manual')" style="float: right; margin-left: 2px;">Show
+				    Distance</button>
+				<button id="autoBtn" type="button" class="btn btn-outline-success" onclick="showDistanceToBen('auto')"
+					style="float: right;">Distance From Device</button>
+				<a id="info" style="margin: 2%;"></a>
+			</div>
+
+		</div>
+		<div id="mapContainer">
+			<div id="map"></div>
+		</div>
+	</div>
+
+	<script src="gps.js"></script>
+	<script
+
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAU8rSTZo0Nk-AmsPQLpjMjisJ-Isi9sZY&callback=initMap"></script>
+
+	<script>
+		// Switches to the first tab
+		function switchTo1() {
+			var submitBtn = document.getElementById("submitBtn");
+			var autoBtn = document.getElementById("autoBtn");
+
+			submitBtn.innerText = "Submit";
+			submitBtn.onclick = showCoord;
+
+			autoBtn.style.display = "none";
+		}
+
+		// Switches to the second tab
+		function switchTo2() {
+			var submitBtn = document.getElementById("submitBtn");
+			var autoBtn = document.getElementById("autoBtn");
+
+			submitBtn.innerText = "Show Distance to Core";
+			submitBtn.onclick = () => getElevation();
+
+			autoBtn.style.display = "block";
+			autoBtn.onclick = () => getElevationAuto();
+		}
+
+		// Switches to the third tab
+		function switchTo3() {
+			var submitBtn = document.getElementById("submitBtn");
+			var autoBtn = document.getElementById("autoBtn");
+
+			submitBtn.innerText = "Show Distance to Big-Ben";
+			submitBtn.onclick = () => showDistanceToBen('manual');
+
+			autoBtn.style.display = "block";
+			autoBtn.onclick = () => showDistanceToBen('auto');
+		}
+
+		// Default switch
+		switchTo1();
+	</script>
+</body>
+
+</html>
