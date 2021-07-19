@@ -8,7 +8,7 @@ or commenting in related codes.
 
 Additionally, if the web page gives an error about javascript or Google Maps API,
 Google Maps API should be activated from the links provided by the error which can
-be accessed from the Inspect/Developer Mode on the page. 
+be accessed from the Inspect/Developer Mode on the page. Currently, the API has an expiry data of around 6 months on a free trial basis.
 
 Same can be said for the web drivers for both Chrome and Firefox, to run the test
 code correctly.
